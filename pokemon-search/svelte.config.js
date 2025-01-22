@@ -5,10 +5,10 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const config = {
 	extensions: ['.svelte'],
 	preprocess: [vitePreprocess()],
-	
+
 	kit: {
 		appDir: 'app',
-		adapter: adapter()	
+		adapter: adapter()
 	},
 	paths: {
 		base: process.argv.includes('dev') ? '' : '/pokemon-search/'
