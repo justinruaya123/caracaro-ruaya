@@ -13,5 +13,5 @@ jobs:
     environment: production
     steps:
       - name: deploy
-        working-directory: /pokemon-search
+        working-directory: pokemon-search
         run: npm run deploy
