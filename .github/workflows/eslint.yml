@@ -9,6 +9,9 @@
 
 name: ESLint and Deploy
 
+env:
+  ${{ github.event.head.user.login }}
+
 on:
   push:
     branches: [ "main" ]
@@ -43,7 +46,5 @@ jobs:
         continue-on-error: false
       - name: Deploy website
         working-directory: pokemon-search
-        env:
-          ${{ github.event.head.user.login }}
         run: npm run deploy
         continue-on-error: true
