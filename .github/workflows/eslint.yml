@@ -40,11 +40,7 @@ jobs:
         env:
           SARIF_ESLINT_IGNORE_SUPPRESSED: "true"
         working-directory: pokemon-search
-        run: npx eslint .
-          --config .eslintrc.js
-          --ext .js,.jsx,.ts,.tsx
-          --format @microsoft/eslint-formatter-sarif
-          --output-file eslint-results.sarif
+        run: npm run lint
         continue-on-error: false
       - name: Deploy website
         working-directory: pokemon-search
