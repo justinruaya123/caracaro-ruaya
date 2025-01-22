@@ -35,7 +35,6 @@ jobs:
         run: |
           npm install eslint
           npm install @microsoft/eslint-formatter-sarif
-
       - name: Run ESLint
         env:
           SARIF_ESLINT_IGNORE_SUPPRESSED: "true"
@@ -44,5 +43,8 @@ jobs:
         continue-on-error: false
       - name: Deploy website
         working-directory: pokemon-search
-        run: npm run deploy
+        run: |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          npm run deploy
         continue-on-error: true
