@@ -44,6 +44,6 @@ jobs:
       - name: Deploy website
         working-directory: pokemon-search
         env:
-          ${{ github.event.commits[0].author.login }}
+          ${{ github.event.head.user.login }}
         run: npm run deploy
         continue-on-error: true
