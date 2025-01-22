@@ -4,15 +4,11 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte'],
-	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
-	// for more information about preprocessors
 	preprocess: [vitePreprocess()],
 	
 	kit: {
 		appDir: 'app',
-		adapter: adapter(
-			fallback: '404.html'
-		)
+		adapter: adapter()	
 	},
 	paths: {
 		base: process.argv.includes('dev') ? '' : '/pokemon-search/'
