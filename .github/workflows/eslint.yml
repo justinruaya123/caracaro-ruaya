@@ -9,9 +9,6 @@
 
 name: ESLint and Deploy
 
-env:
-  ${{ github.event.head.user.login }}
-
 on:
   push:
     branches: [ "main" ]
