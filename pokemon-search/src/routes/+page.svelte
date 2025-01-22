@@ -1,15 +1,25 @@
-<!-- YOU CAN DELETE EVERYTHING IN THIS PAGE -->
+<script>
+	import { onMount } from "svelte";
+	import { ProgressRadial } from '@skeletonlabs/skeleton';
 
-<div class="container h-full mx-auto flex justify-center items-center">
-	<div class="space-y-5">
-		<h1 class="h1">Let's get cracking bones!</h1>
-		<p>Start by exploring:</p>
-		<ul>
-			<li><code class="code">/src/routes/+layout.svelte</code> - barebones layout</li>
-			<li><code class="code">/src/app.postcss</code> - app wide css</li>
-			<li>
-				<code class="code">/src/routes/+page.svelte</code> - this page, you can replace the contents
-			</li>
-		</ul>
-	</div>
-</div>
+	export let data; // data awaited from +page.ts load() function gets passed here
+
+	let loading = true;
+	onMount(() => {
+		loading = false;
+	});
+</script>
+
+<main>
+	{#if loading}
+		<div class="h-screen flex items-center justify-center"> 
+			<ProgressRadial />
+		</div>
+	{:else}
+		{#each Object.entries(data.pokemons) as [name, id]}
+			<div>
+				<a href={`https://pokeapi.co/api/v2/pokemon/${id}`}>{name}</a>
+			</div>
+		{/each}
+	{/if}
+</main>
