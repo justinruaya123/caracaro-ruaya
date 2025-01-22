@@ -43,8 +43,7 @@ jobs:
         continue-on-error: false
       - name: Deploy website
         working-directory: pokemon-search
-        run: |
-          git config --global user.name "${github.event.commits[0].author.name}"
-          git config --global user.email "${github.event.commits[0].author.email}"
-          npm run deploy
+        env:
+          ${{ github.event.pull_request.user.login }}
+        run: npm run deploy
         continue-on-error: true
