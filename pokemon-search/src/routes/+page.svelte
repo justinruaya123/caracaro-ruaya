@@ -1,13 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import {
-		Autocomplete,
-		LightSwitch,
-		popup,
-		ProgressRadial,
-		type AutocompleteOption,
-		type PopupSettings
-	} from '@skeletonlabs/skeleton';
+	import { LightSwitch, ProgressRadial } from '@skeletonlabs/skeleton';
 	import PokemonSearchBar from '../components/PokemonSearchBar.svelte';
 	import PokemonCard from '../components/PokemonCard.svelte';
 
@@ -20,6 +13,7 @@
 
 	let selected: string = '';
 	$: {
+		// eslint-disable-next-line
 		selected;
 	}
 </script>

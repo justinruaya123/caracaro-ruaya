@@ -1,11 +1,5 @@
 <script lang="ts">
-	import {
-		Autocomplete,
-		type AutocompleteOption,
-		type PopupSettings
-	} from '@skeletonlabs/skeleton';
-	import { popup } from '@skeletonlabs/skeleton';
-	import { onMount } from 'svelte';
+	import { Autocomplete, type AutocompleteOption } from '@skeletonlabs/skeleton';
 
 	export let pokemonList: AutocompleteOption<string>;
 	export let selected: string = '';
