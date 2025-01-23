@@ -23,7 +23,7 @@
 		</div>
 		<section>
 			<button type="button" class="btn rounded-full variant-ghost-surface m-4">
-				<span>Type</span>
+				<span><b>Type:</b></span>
 				<span>{data.types.map((type) => type.type.name).join('/')}</span>
 			</button>
 			<Accordion>
