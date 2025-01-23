@@ -9,11 +9,11 @@
 		type PopupSettings
 	} from '@skeletonlabs/skeleton';
 	import PokemonSearchBar from '../components/PokemonSearchBar.svelte';
+	import PokemonCard from '../components/PokemonCard.svelte';
 
 	export let data; // data awaited from +page.ts load() function gets passed here
 
 	let loading = true;
-	let pokemons: AutocompleteOption<string>[];
 	onMount(() => {
 		loading = false;
 	});
@@ -31,7 +31,9 @@
 		</div>
 	{:else}
 		<PokemonSearchBar pokemonList={data.pokemons} bind:selected />
-		<h1>{selected}</h1>
+		{#if selected}
+			<PokemonCard pokemon={selected} />
+		{/if}
 		<LightSwitch />
 	{/if}
 </main>

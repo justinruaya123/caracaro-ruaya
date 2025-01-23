@@ -21,7 +21,7 @@
 	class="input"
 	type="search"
 	name="autocomplete-search"
-	placeholder="Search by Pokemon/ID..."
+	placeholder="Search pokemon..."
 	bind:value={pokemonSearchString}
 />
 <div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto" tabindex="-1">
