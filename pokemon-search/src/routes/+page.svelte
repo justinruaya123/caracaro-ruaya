@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { LightSwitch, ProgressRadial } from '@skeletonlabs/skeleton';
+	import { ProgressRadial } from '@skeletonlabs/skeleton';
 	import PokemonSearchBar from '../components/PokemonSearchBar.svelte';
 	import PokemonCard from '../components/PokemonCard.svelte';
 
@@ -25,10 +25,10 @@
 		</div>
 	{:else}
 		<div class="flex flex-col items-center">
-		<PokemonSearchBar pokemonList={data.pokemons} bind:selected />
-		{#if selected}
-			<PokemonCard pokemon={selected} />
-		{/if}
+			<PokemonSearchBar pokemonList={data.pokemons} bind:selected />
+			{#if selected}
+				<PokemonCard pokemon={selected} />
+			{/if}
 		</div>
 	{/if}
 </main>
