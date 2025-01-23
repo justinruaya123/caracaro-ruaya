@@ -24,10 +24,11 @@
 			<ProgressRadial />
 		</div>
 	{:else}
+		<div class="flex flex-col items-center">
 		<PokemonSearchBar pokemonList={data.pokemons} bind:selected />
 		{#if selected}
 			<PokemonCard pokemon={selected} />
 		{/if}
-		<LightSwitch />
+		</div>
 	{/if}
 </main>

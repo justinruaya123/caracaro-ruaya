@@ -10,15 +10,18 @@
 		selected = e.detail.value;
 	}
 </script>
+<div class="card w-full max-w-sm p-4">
+    <input
+            class="input"
+            type="search"
+            name="autocomplete-search"
+            placeholder="Search pokemon..."
+            bind:value={pokemonSearchString}
+        />
+</div>
 
-<input
-	class="input"
-	type="search"
-	name="autocomplete-search"
-	placeholder="Search pokemon..."
-	bind:value={pokemonSearchString}
-/>
 <div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto" tabindex="-1">
+    
 	<Autocomplete
 		bind:input={pokemonSearchString}
 		options={pokemonList}
