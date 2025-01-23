@@ -1,13 +1,18 @@
-<script>
+<script lang="ts">
 	import { onMount } from "svelte";
-	import { ProgressRadial } from '@skeletonlabs/skeleton';
+	import { Autocomplete, LightSwitch, popup, ProgressRadial, type AutocompleteOption, type PopupSettings } from '@skeletonlabs/skeleton';
+	import PokemonSearchBar from "../components/PokemonSearchBar.svelte";
 
 	export let data; // data awaited from +page.ts load() function gets passed here
 
 	let loading = true;
+	let pokemons: AutocompleteOption<string>[];
 	onMount(() => {
 		loading = false;
 	});
+
+	let selected: string = '';
+	$: { selected }
 </script>
 
 <main>
@@ -16,10 +21,8 @@
 			<ProgressRadial />
 		</div>
 	{:else}
-		{#each Object.entries(data.pokemons) as [name, id]}
-			<div>
-				<a href={`https://pokeapi.co/api/v2/pokemon/${id}`}>{name}</a>
-			</div>
-		{/each}
+		<PokemonSearchBar pokemonList={data.pokemons} bind:selected />
+		<h1>{selected}</h1>
+		<LightSwitch />
 	{/if}
 </main>
