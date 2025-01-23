@@ -85,16 +85,16 @@ if __name__ == "__main__":
         print(f"[Valid Parenthesis] Test case {i} passed")
     # sudoku tests
     print("Sudoku tests")
-    board = """53..7....
-                6..195...
-                .98....6.
-                8...6...3
-                4..8.3..1
-                7...2...6
-                .6....28.
-                ...419..5
-                ....8..79"""
     boards = [
+        """53..7....
+            6..195...
+            .98....6.
+            8...6...3
+            4..8.3..1
+            7...2...6
+            .6....28.
+            ...419..5
+            ....8..79""",
         """...26.7.1
             68..7..9.
             19...45..
@@ -123,7 +123,7 @@ if __name__ == "__main__":
             ...419..5
             ....8..79"""
     ]
-    solvable = [True, False, False]
+    solvable = [True, True, False, False]
     for i in range(len(boards)):
         # Test case 2 will take a while because it's an impossible board. That TC came from my MIPS assembly tests that took 40 minutes to execute.
         assert is_sudoku_valid(boards[i]) == solvable[i]
